@@ -2,7 +2,7 @@
 
 Hamburgers is a collection of tasty CSS-animated hamburger icons. Also included is the source as a [Sass](#sass) library. It’s modular and customizable, so cook up your own hamburger.
 
-![](http://i.imgur.com/Ph0ndte.gif)
+![](http://i.imgur.com/t7cUjDu.gif)
 
 ### Table of Contents
 
@@ -32,7 +32,7 @@ Hamburgers is a collection of tasty CSS-animated hamburger icons. Also included 
   You *can* use `<div>`s if you insist, but they’re not [accessible](#accessibility) as a menu button.
 
   ```html
-  <div class="hamburger" type="button">
+  <div class="hamburger">
     <div class="hamburger-box">
       <div class="hamburger-inner"></div>
     </div>
@@ -52,6 +52,10 @@ Hamburgers is a collection of tasty CSS-animated hamburger icons. Also included 
   Here’s the list of hamburger-type classes you can choose from:
 
   ```
+  hamburger--3dx
+  hamburger--3dx-r
+  hamburger--3dy
+  hamburger--3dy-r
   hamburger--arrow
   hamburger--arrow-r
   hamburger--arrowalt
@@ -67,6 +71,10 @@ Hamburgers is a collection of tasty CSS-animated hamburger icons. Also included 
   hamburger--slider-r
   hamburger--spin
   hamburger--spin-r
+  hamburger--spring
+  hamburger--spring-r
+  hamburger--stand
+  hamburger--stand-r
   hamburger--squeeze
   hamburger--vortex
   hamburger--vortex-r
@@ -131,22 +139,53 @@ $hamburger-hover-transition-timing-function: linear !default;
 // change the value of $hamburger-hover-filter accordingly.
 $hamburger-hover-use-filter: false !default;
 $hamburger-hover-filter    : opacity(50%) !default;
+
+// Remove or comment out the hamburger types you don’t want
+// or need, so they get excluded from the compiled CSS.
+$hamburger-types: (
+  3dx,
+  3dx-r,
+  3dy,
+  3dy-r,
+  arrow,
+  arrow-r,
+  arrowalt,
+  arrowalt-r,
+  boring,
+  collapse,
+  collapse-r,
+  elastic,
+  elastic-r,
+  emphatic,
+  emphatic-r,
+  slider,
+  slider-r,
+  spring,
+  spring-r,
+  stand,
+  stand-r,
+  spin,
+  spin-r,
+  squeeze,
+  vortex,
+  vortex-r
+) !default;
 ```
 
-To override any default settings, you can change the value(s) within `hamburgers.scss`, but I recommend you declare your new settings separately:
+To override any default settings, you can change the value(s) within `hamburgers.scss`, but I recommend you declare your new settings separately. Settings must come before `@import`:
 
 ```scss
-@import "path/to/hamburgers";
-
 $hamburgers-padding-x: 20px;
 $hamburgers-padding-y: 15px;
+
+@import "path/to/hamburgers";
 ```
 
 You can also create a separate file (e.g. `hamburgers-settings.scss`) with those declarations, then import it along with Hamburgers:
 
 ```scss
-@import "path/to/hamburgers";
 @import "hamburgers-settings"
+@import "path/to/hamburgers";
 ```
 
 #### `ems` or `rems`
